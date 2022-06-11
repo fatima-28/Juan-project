@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Juan.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,13 @@ namespace WebApp.DAL
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
+            
 
-        }
-       
+    }
+        public DbSet<Product> Products { get; set; }
+        public DbSet< Category> Categories { get; set; }
+        public DbSet<ProductCategory> ProductCategory { get; set; }
+
 
     }
 }
