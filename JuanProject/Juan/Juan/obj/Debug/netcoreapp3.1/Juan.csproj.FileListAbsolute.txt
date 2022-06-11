@@ -202,7 +202,6 @@ C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\
 C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.TagHelpers.input.cache
 C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.TagHelpers.output.cache
 C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.RazorCoreGenerate.cache
-C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.RazorTargetAssemblyInfo.cache
@@ -251,3 +250,7 @@ C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\bin\Debug\netcoreapp3.1\
 C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\JuanAdminPanel\Views\_ViewStart.cshtml.g.cs
+C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\JuanAdminPanel\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\mac\Desktop\JUAN_PROJECT\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\JuanAdminPanel\Shared\_AdminLayout.cshtml.g.cs

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApp.DAL;
+using WebApp.ViewModels;
 
 namespace Juan.Controllers
 {
@@ -16,7 +18,16 @@ namespace Juan.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+
+
+            HomeViewModel home = new HomeViewModel
+            {
+
+                Categories = _context.Categories.Where(c => !c.IsDeleted).ToList(),
+                Products = _context.Products.Where(c => !c.IsDeleted).ToList()
+
+            };
+            return View(home);
         }
     }
 }
