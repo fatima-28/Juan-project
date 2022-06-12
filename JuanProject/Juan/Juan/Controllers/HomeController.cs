@@ -25,7 +25,8 @@ namespace Juan.Controllers
 
                 Categories = _context.Categories.Where(c => !c.IsDeleted).ToList(),
                 Products = _context.Products.Where(c => !c.IsDeleted).ToList(),
-                Slides = _context.Slides.ToList()
+                Slides = _context.Slides.ToList(),
+                Futures=_context.Futures.Where(f=>!f.IsDeleted).ToList()
                
 
             };
