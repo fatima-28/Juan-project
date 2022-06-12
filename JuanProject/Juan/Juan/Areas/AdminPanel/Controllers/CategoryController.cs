@@ -1,4 +1,5 @@
 ﻿using Juan.Models;
+using Juan.ViewModels.Categories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,39 @@ namespace Juan.Areas.AdminPanel.Controllers
         public IActionResult Index()
         {
             return View(categories);
+        }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Create(CategoryCreateViewModel category)
+        {
+           
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+
+            }
+            bool IsExist = categories.Where(c => !c.IsDeleted).Any(c => c.Name.ToLower() == category.Name.ToLower());
+            if (IsExist)
+            {
+                ModelState.AddModelError("Name", $"{category.Name} is already exist!");
+                return View();
+
+            }
+            Category newCategory = new Category()
+            {
+                Name = category.Name
+
+            };
+            await _context.Categories.AddAsync(newCategory);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }

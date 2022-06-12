@@ -405,3 +405,4 @@ C:\Users\mac\Desktop\Juan-project\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\
 C:\Users\mac\Desktop\Juan-project\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\mac\Desktop\Juan-project\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\_ViewImports.cshtml.g.cs
 C:\Users\mac\Desktop\Juan-project\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Index.cshtml.g.cs
+C:\Users\mac\Desktop\Juan-project\JuanProject\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Create.cshtml.g.cs
