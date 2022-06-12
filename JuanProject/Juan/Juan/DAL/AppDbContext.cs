@@ -18,6 +18,7 @@ namespace WebApp.DAL
         public DbSet<Product> Products { get; set; }
         public DbSet< Category> Categories { get; set; }
         public DbSet<ProductCategory> ProductCategory { get; set; }
+        public DbSet<Slide> Slides  { get; set; }
 
 
     }
