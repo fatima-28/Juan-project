@@ -9,7 +9,7 @@ using WebApp.DAL;
 namespace Juan.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220611013144_CreateProductCategoryTable")]
+    [Migration("20220612062657_CreateProductCategoryTable")]
     partial class CreateProductCategoryTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

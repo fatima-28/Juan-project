@@ -2,7 +2,7 @@
 
 namespace Juan.Migrations
 {
-    public partial class CreateCategoryProductTable : Migration
+    public partial class CreateProductCategoryTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,7 +21,7 @@ namespace Juan.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Slides",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -34,7 +34,7 @@ namespace Juan.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Slides", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -56,9 +56,9 @@ namespace Juan.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductCategory_Slides_ProductId",
+                        name: "FK_ProductCategory_Products_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Slides",
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -83,7 +83,7 @@ namespace Juan.Migrations
                 name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Slides");
+                name: "Products");
         }
     }
 }

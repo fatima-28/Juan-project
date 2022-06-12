@@ -9,8 +9,8 @@ using WebApp.DAL;
 namespace Juan.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220611012659_CreateCategoryProductTable")]
-    partial class CreateCategoryProductTable
+    [Migration("20220612064233_CreateSlideTable")]
+    partial class CreateSlideTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,7 +62,7 @@ namespace Juan.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slides");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Juan.Models.ProductCategory", b =>
@@ -85,6 +85,30 @@ namespace Juan.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductCategory");
+                });
+
+            modelBuilder.Entity("Juan.Models.Slide", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ISummary")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Slides");
                 });
 
             modelBuilder.Entity("Juan.Models.ProductCategory", b =>
