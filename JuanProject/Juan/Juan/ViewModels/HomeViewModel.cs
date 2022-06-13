@@ -14,6 +14,8 @@ namespace WebApp.ViewModels
         public List<Product> Products { get; set; }
         public List<Slide> Slides { get; set; }
         public List<Future> Futures { get; set; }
+        public List<NewProduct> NewProducts { get; set; }
+        public List<OurBlog> OurBlogs { get; set; }
 
 
     }
