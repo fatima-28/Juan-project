@@ -106,10 +106,15 @@ namespace Juan.Areas.AdminPanel.Controllers
             {
                 return NotFound();
             }
-
+            if (category.Name == null)
+            {
+                ModelState.AddModelError("Name", $"You must fill this part");
+                return View();
+            }
             if (category.Name.ToLower() ==  Dbcategory.Name.ToLower()) { 
             return RedirectToAction(nameof(Index));
             }
+        
 
             bool IsExist = categories.Where(c => !c.IsDeleted).Any(c => c.Name.ToLower() == category.Name.ToLower());
             if (IsExist)

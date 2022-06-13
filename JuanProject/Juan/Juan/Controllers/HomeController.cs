@@ -34,5 +34,7 @@ namespace Juan.Controllers
             };
             return View(home);
         }
+
+       
     }
 }

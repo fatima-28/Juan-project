@@ -1,5 +1,5 @@
-﻿@using Juan.Models
-
+﻿
+@using Juan.Models
 @model IEnumerable<Slide>;
 @{
     ViewData["Title"] = "Index";
@@ -35,7 +35,7 @@
                                     @count
                                 </td>
                                 <td>
-                                    @slide.Image
+                                  <img src="~/assets/img/slider/@slide.Image" alt="slide">
                                 </td>
                                 <td>
                                     <a class="btn btn-danger btn-lg" asp-action="Delete" asp-route-id="@slide.Id">
