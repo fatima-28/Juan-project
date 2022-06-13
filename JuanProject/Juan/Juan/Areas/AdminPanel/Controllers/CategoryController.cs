@@ -56,5 +56,28 @@ namespace Juan.Areas.AdminPanel.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+
+       
+        
+          
+          
+
+  
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+           Category categoryDb= _context.Categories.Where(c => !c.IsDeleted).FirstOrDefault(c=>c.Id==id);
+            if (categories==null)
+            {
+                return NotFound();
+            }
+            categoryDb.IsDeleted = true;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }
