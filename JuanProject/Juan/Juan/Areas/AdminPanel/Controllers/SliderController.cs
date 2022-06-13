@@ -85,45 +85,39 @@ namespace Juan.Areas.AdminPanel.Controllers
 
         }
 
-        //    slide.Image = await slide.Photo.SaveFileAsync(_env.WebRootPath, "img");
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
 
-        //    await _context.Slides.AddAsync(slide);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return BadRequest();
+            }
+            var slider = _context.Slides.Find(id);
+            if (slider == null)
+            {
+                return NotFound();
+            }
+            var path = Helper.GetPath(_env.WebRootPath, "img", slider.Image);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
 
-        //    }
-        //    var slider = _context.Slides.Find(id);
-        //    if (slider == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var path = Helper.GetPath(_env.WebRootPath, "img", slider.Image);
-        //    if (System.IO.File.Exists(path))
-        //    {
-        //        System.IO.File.Delete(path);
+            }
+            _context.Slides.Remove(slider);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
-        //    }
-        //    _context.Slides.Remove(slider);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
+        public IActionResult Update(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            var DBSlide = _context.Slides.Find(id);
+            return View(DBSlide);
 
-        //public IActionResult Update(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    var DBSlide = _context.Slides.Find(id);
-        //    return View(DBSlide);
-
-        //}
+        }
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public async Task<IActionResult> UpdateAsync(int? id, Slide slide)
@@ -152,16 +146,16 @@ namespace Juan.Areas.AdminPanel.Controllers
         //        ModelState.AddModelError("Photo", "Type error exist");
         //        return View();
         //    }
-        //    slide.Image = await slide.Photo.SaveFileAsync(_env.WebRootPath, "img", "slider");
-        //    var path = Helper.GetPath(_env.WebRootPath, "img", "slider", DBSlide.Image);
-        //    DBSlide.Image = slide.Image;
+
 
 
         //    if (System.IO.File.Exists(path))
         //    {
         //        System.IO.File.Delete(path);
         //    }
-
+        //    slide.Image = await slide.Photo.SaveFileAsync(_env.WebRootPath, "img", "slider");
+        //var path = Helper.GetPath(_env.WebRootPath, "img", "slider", DBSlide.Image);
+        //DBSlide.Image = slide.Image;
 
 
 
