@@ -8,13 +8,13 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">CREATE NEW SLIDER</h4>
-
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label asp-for="Photo">SELECT PHOTO</label>
-                        <input class="form-control" asp-for="Photo">
+                        <label asp-for="Photos">SELECT PHOTO</label>
+                        <input class="form-control" asp-for="Photos">
 
-                        <span class="text-danger" asp-validation-for="Photo"></span>
+                        <span class="text-danger" asp-validation-for="Photos"></span>
                     </div>
 
                     <button type="submit" class="btn btn-primary me-2">CREATE</button>

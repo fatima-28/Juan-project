@@ -16,7 +16,7 @@ namespace Juan.Models
         public string Text { get; set; }
         public string ISummary { get; set; }
         [NotMapped, Required]
-        public IFormFile Photo { get; set; }
+        public List<IFormFile> Photos { get; set; }
 
     }
 }

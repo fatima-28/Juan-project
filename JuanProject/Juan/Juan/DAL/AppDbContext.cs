@@ -22,6 +22,7 @@ namespace WebApp.DAL
         public DbSet<Future> Futures { get; set; }
         public DbSet<NewProduct> NewProducts { get; set; }
         public DbSet<OurBlog> OurBlogs { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
 
 
