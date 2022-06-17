@@ -16,21 +16,24 @@ namespace Juan.Areas.AdminPanel.Controllers
         private AppDbContext _context { get; }
         private IWebHostEnvironment _env { get; }
         private int counter { get; }
+        private int SliderMaxCount { get; }
         public SliderController(AppDbContext context, IWebHostEnvironment env)
         {
 
             _context = context;
             _env = env;
             counter= _context.Slides.Count();
+            SliderMaxCount=int.Parse( _context.Settings.ToDictionary(s => s.key, s => s.value)["slider_max_count"]);
         }
         public IActionResult Index()
         {
             ViewBag.count = counter;
+            ViewBag.SliderMaxCount = SliderMaxCount;
             return View(_context.Slides);
         }
         public IActionResult Create()
         {
-            if (counter>=5)
+            if (counter>= SliderMaxCount)
             {
                 return Content("sorry");
             }
@@ -45,9 +48,9 @@ namespace Juan.Areas.AdminPanel.Controllers
             {
                 return View();
             }
-            if (slide.Photos.Count+counter>5)
+            if (slide.Photos.Count+counter> SliderMaxCount)
             {
-                ModelState.AddModelError("",$" you can choose {5-counter} photo");
+                ModelState.AddModelError("",$" you can choose {SliderMaxCount - counter} photo");
                 return View();
 
             }

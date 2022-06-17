@@ -11,7 +11,7 @@
         <div class="card-body">
             <h4 class="card-title">Categories</h4>
 
-            @if (ViewBag.count >= 5)
+            @if (ViewBag.count >= ViewBag.SliderMaxCount)
             {
                 <a class="btn btn-danger disabled" asp-action="Create">Create new slide</a>
             }
