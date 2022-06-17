@@ -1,3 +1,16 @@
+$(document).ready(function () {
+	$(document).on('click', '#loadProduct', function () {
+		$.ajax({
+			url: "http://localhost:31234/Shop/LoadProducts",
+			method: "GET",
+			success: function (res) {
+				$("#product-list").append(res);
+            }
+        })
+    })
+
+})
+
 (function ($) {
 	"use strict";
 

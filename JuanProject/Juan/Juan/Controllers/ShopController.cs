@@ -1,4 +1,5 @@
-﻿using Juan.ViewModels;
+﻿using Juan.Models;
+using Juan.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,12 +23,20 @@ namespace Juan.Controllers
             {
 
                 Categories = _context.Categories.Where(c => !c.IsDeleted).ToList(),
-                Products = _context.Products.Where(c => !c.IsDeleted).ToList()
+                Products = _context.Products.Where(c => !c.IsDeleted).Take(9).ToList()
                
 
 
             };
             return View(shop);
+        }
+
+        public IActionResult LoadProducts()
+        {
+            List<Product> products = _context.Products.Where(p => !p.IsDeleted).OrderByDescending(p => p.Id).Skip(5).Take(9).ToList();
+
+            //return Json(products);
+            return PartialView("_ProductPartial", products);
         }
     }
 }
