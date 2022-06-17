@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿
+
+@using Juan.Services
+@inject SettingService settingsServices;
+@{ 
+    Dictionary<string, string> settings = settingsServices.GetAllSettings();
+}
+<!DOCTYPE html>
 <html class="no-js" lang="zxx">
 <!-- Mirrored from demo.hasthemes.com/juan-preview-v1/juan/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 07 Mar 2021 22:36:22 GMT -->
 <head>
@@ -84,7 +91,7 @@
                         <div class="col-lg-2">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="~/assets/img/logo/logo.png" alt="" />
+                                    <img src="~/assets/img/logo/@settings["logo"]" alt="" />
                                 </a>
                             </div>
                         </div>
