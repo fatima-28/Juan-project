@@ -188,6 +188,7 @@
 
                             <partial name="_ProductPartial" model="@Model.Products" />
                             <div class="row justify-content-center">
+                                <input type="hidden" id="count"  value="@ViewBag.ProductCount"/>
                                 <button class="btn btn-success small " id="loadProduct">Load More...</button>
                             </div>
                         </div>

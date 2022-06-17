@@ -13,17 +13,21 @@ namespace Juan.Controllers
     public class ShopController : Controller
     {
         private AppDbContext _context { get; }
+        private int _count { get; }
         public ShopController(AppDbContext context)
         {
             _context = context;
+            _count = _context.Products.Where(p => !p.IsDeleted).Count();
         }
         public IActionResult Index()
         {
+
+            ViewBag.ProductCount = _count;
             ShopViewModel shop = new ShopViewModel
             {
 
                 Categories = _context.Categories.Where(c => !c.IsDeleted).ToList(),
-                Products = _context.Products.Where(c => !c.IsDeleted).Take(9).ToList()
+                Products = _context.Products.Where(c => !c.IsDeleted).OrderByDescending(p => p.Id).Skip(5).Take(9).ToList()
                
 
 
@@ -31,9 +35,14 @@ namespace Juan.Controllers
             return View(shop);
         }
 
-        public IActionResult LoadProducts()
+        public IActionResult LoadProducts( int skip=5)
         {
-            List<Product> products = _context.Products.Where(p => !p.IsDeleted).OrderByDescending(p => p.Id).Skip(5).Take(9).ToList();
+            if (skip>= _count)
+            {
+                return BadRequest();
+
+            }
+            List<Product> products = _context.Products.Where(p => !p.IsDeleted).OrderByDescending(p => p.Id).Skip(skip).Take(9).ToList();
 
             //return Json(products);
             return PartialView("_ProductPartial", products);

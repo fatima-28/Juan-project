@@ -1,10 +1,20 @@
 $(document).ready(function () {
 	$(document).on('click', '#loadProduct', function () {
+		let length = $("#product-list").children().length;
+		let maxCount = $("#count").val();
+	
+		
+
 		$.ajax({
-			url: "http://localhost:31234/Shop/LoadProducts",
+			url: `http://localhost:31234/Shop/LoadProducts?skip=${length}`,
 			method: "GET",
 			success: function (res) {
+    
 				$("#product-list").append(res);
+				if ($("#product-list").children().length >= maxCount) {
+					$("#loadProduct").css("display","none")
+                }
+				
             }
         })
     })
