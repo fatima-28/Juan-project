@@ -189,7 +189,7 @@
                             <partial name="_ProductPartial" model="@Model.Products" />
                             <div class="row justify-content-center">
                                 <input type="hidden" id="count"  value="@ViewBag.ProductCount"/>
-                                <button class="btn btn-success small " id="loadProduct">Load More...</button>
+                                @*<button class="btn btn-success small " id="loadProduct">Load More...</button>*@
                             </div>
                         </div>
                       
@@ -199,10 +199,10 @@
                         <div class="paginatoin-area text-center mt-45">
                             <ul class="pagination-box">
                                 <li><a class="Previous" href="#"><i class="ion-ios-arrow-left"></i></a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a class="Next" href="#"><i class="ion-ios-arrow-right"></i></a></li>
+                                <li class="active" id="button-1-li"><a href="#" id="button1">1</a></li>
+                                <li id="button-2-li"><a href="#"id="button2">2</a></li>
+                                <li id="button-3-li"><a href="#" id="button3">3</a></li>
+                                <li ><a class="Next" href="#"><i class="ion-ios-arrow-right"></i></a></li>
                             </ul>
                         </div>
                         <!-- end pagination area -->
