@@ -55,6 +55,42 @@ namespace Juan.Controllers
             await _signinManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+        public IActionResult SignIn()
+        {
+            return View();
 
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task< IActionResult >SignIn(SignInVM user)
+        {
+         AppUser userDb= await  _userManager.FindByEmailAsync(user.Email);
+            if (userDb==null)
+            {
+                ModelState.AddModelError("","Email or password is not valid");
+                return View(user);
+            }
+
+            var signinResult =
+                await _signinManager.PasswordSignInAsync(userDb.Email,user.Password,user.IsPersistent,lockoutOnFailure:true);
+            if (signinResult.IsLockedOut)
+            {
+                ModelState.AddModelError("", "Please try after few minute");
+                return View(user);
+            }
+            if (!signinResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Email or password is not valid");
+                return View(user);
+            }
+            if (!userDb.IsActivated)
+            {
+                ModelState.AddModelError("", "Verify your account");
+                return View(user);
+            }
+            return View();
+
+        }
     }
 }
