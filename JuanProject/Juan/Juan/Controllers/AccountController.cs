@@ -45,10 +45,15 @@ namespace Juan.Controllers
 
                 }
                 return View(user);
-               await _signinManager.SignInAsync(newUser, true);
-                return RedirectToAction("Index", "Home");
+               
             }
-            return View();
+            await _signinManager.SignInAsync(newUser, true);
+            return RedirectToAction("Index", "Home");
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await _signinManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
 
     }
