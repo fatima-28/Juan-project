@@ -11,11 +11,13 @@ namespace Juan.Controllers
 {
     public class AccountController : Controller
     {
-        private UserManager<AppDbContext> _userManager { get;  }
+        private UserManager<AppUser> _userManager { get;  }
+        private SignInManager<AppUser> _signinManager { get; }
 
-        public AccountController(UserManager<AppDbContext> userManager)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signinManager)
         {
             _userManager = userManager;
+            _signinManager = signinManager;
         }
         public IActionResult Register()
         {
@@ -24,10 +26,28 @@ namespace Juan.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(RegisterVM user)
+        public async Task<IActionResult> Register(RegisterVM user)
         {
             if (!ModelState.IsValid) return View(user);
 
+            AppUser newUser = new AppUser
+            {
+                Fullname = user.Fullname,
+                UserName = user.Username,
+                Email = user.Email
+            };
+            var identityResult = await _userManager.CreateAsync(newUser, user.Password);
+            if (!identityResult.Succeeded)
+            {
+                foreach (var error in identityResult.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+
+                }
+                return View(user);
+               await _signinManager.SignInAsync(newUser, true);
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
