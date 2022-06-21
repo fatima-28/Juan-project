@@ -5,8 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApp.DAL;
-
+using Juan.DAL;
 namespace Juan.Areas.AdminPanel.Controllers
 {
     [Area("AdminPanel")]

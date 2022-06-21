@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace WebApp.DAL
+namespace Juan.DAL
 {
     public class AppDbContext : IdentityDbContext<AppUser>
     {

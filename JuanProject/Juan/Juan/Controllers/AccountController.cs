@@ -6,8 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApp.DAL;
-
+using Juan.DAL;
 namespace Juan.Controllers
 {
     public class AccountController : Controller
@@ -25,16 +24,10 @@ namespace Juan.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterVM user)
+        public IActionResult Register(RegisterVM user)
         {
             if (!ModelState.IsValid) return View(user);
 
-            AppUser newUser = new AppUser
-            {
-                Fullname = user.Fullname,
-                Email = user.Email
-            };
-            //var identityResult = await _userManager.CreateAsync(newUser,user.Password);
             return View();
         }
 
